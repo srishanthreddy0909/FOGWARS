@@ -1,0 +1,43 @@
+#title,#mode,#maps,#history,#win,#online,#join,#lobby{background:radial-gradient(ellipse at 50% 43%,rgba(18,66,66,.89),rgba(4,13,16,.97) 62%),repeating-linear-gradient(35deg,transparent 0 45px,rgba(91,195,176,.045) 46px 47px)}
+#title:before{content:"";position:absolute;inset:0;opacity:.15;pointer-events:none;background-image:linear-gradient(30deg,transparent 48%,#7cd7c3 49%,transparent 50%),linear-gradient(90deg,transparent 49%,#7cd7c3 50%,transparent 51%);background-size:110px 90px;mask-image:linear-gradient(transparent,#000)}
+.logo{position:relative;text-shadow:0 12px 50px #59dac255}.sub{position:relative;letter-spacing:4px}.primary{box-shadow:0 0 22px #59d8c211;letter-spacing:1px}.card{position:relative;overflow:hidden}.card:hover{transform:translateY(-3px);box-shadow:0 12px 32px #0007}.preview{background:linear-gradient(145deg,#102326,#0b1618)}.select-label{display:block;margin-top:12px;color:#64ddc9;font-size:10px;letter-spacing:2px}.modegrid .card{min-height:125px}#history .panel{max-height:94vh}.historyStats{grid-template-columns:repeat(4,1fr)}#win h1{font-size:clamp(28px,6vw,50px);letter-spacing:3px}
+@media(max-width:800px){.historyStats{grid-template-columns:repeat(2,1fr)}#history .panel{padding:12px}.card{padding:13px}}
+
+/* Premium navigation-console treatment shared by every non-game screen. */
+#title,#mode,#maps,#history,#win,#online,#join,#lobby{background:radial-gradient(ellipse at 50% 38%,rgba(16,61,68,.92),rgba(4,11,17,.98) 66%),linear-gradient(130deg,#0c121b,#071417)}
+#title:after{content:"";position:absolute;inset:12px;border:1px solid rgba(97,225,215,.16);box-shadow:inset 0 0 80px rgba(54,185,197,.06);pointer-events:none}
+.logo{text-shadow:0 0 18px rgba(91,238,222,.28),0 18px 60px #0009;letter-spacing:.14em}
+.sub{color:#b1cbd0;text-shadow:0 1px 8px #000}
+.btn,.card{background:linear-gradient(145deg,rgba(14,31,40,.96),rgba(7,18,24,.96));border-color:rgba(97,164,174,.45);box-shadow:0 12px 30px rgba(0,0,0,.28)}
+.primary{min-height:52px;color:#f2ffff;border-color:#55dcca;background:linear-gradient(110deg,rgba(17,62,68,.97),rgba(11,35,46,.98));box-shadow:0 0 22px rgba(69,226,208,.11),0 12px 28px #0005}
+.primary:hover{color:#fff;border-color:#a2fff0;background:linear-gradient(110deg,#1a7775,#173b58);box-shadow:0 0 28px rgba(72,236,219,.28),0 12px 28px #0006}
+.primary:active{box-shadow:0 0 12px rgba(72,236,219,.20)}
+.card{backdrop-filter:blur(10px);color:#f0f8f9}.card h2{color:#f5ffff}.card p{color:#bdcdd0}.card:hover{border-color:#6bf0dc;box-shadow:0 0 24px rgba(71,224,211,.15),0 18px 36px #0008}
+.preview{border-color:rgba(100,197,196,.42);box-shadow:inset 0 0 28px rgba(70,217,204,.08)}
+.select-label{color:#8af9e6;text-shadow:0 0 10px rgba(94,246,223,.45)}
+.back{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:8px 20px;color:#c6e2e4;border:1px solid rgba(116,180,188,.45);border-radius:8px;background:rgba(6,18,24,.85);text-decoration:none}
+.back:hover{color:#fff;border-color:#70eadb;background:rgba(20,73,78,.92);box-shadow:0 0 18px rgba(76,225,211,.18)}
+.history-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;width:min(320px,100%);margin:18px auto 0}
+.history-actions .back{width:100%;margin:0;font-weight:700;letter-spacing:1px}
+#history{overflow-y:auto;padding:clamp(14px,4vh,42px) 0;align-items:flex-start}
+#history .panel{max-height:none;margin:auto;width:min(900px,94vw)}
+#history .list{max-height:min(37vh,340px);padding-right:4px}
+.hstat,.item,.result{background:linear-gradient(145deg,rgba(12,31,39,.95),rgba(7,17,23,.95));border-color:rgba(88,149,160,.35);box-shadow:inset 0 1px rgba(255,255,255,.025)}
+.hstat small,.item small,.result small{color:#bdd1d4}
+#win .result b,#history .hstat b{color:#88f4df;text-shadow:0 0 14px rgba(93,236,216,.2)}
+.online-panel{width:min(560px,92vw);padding:clamp(22px,5vw,48px);border:1px solid rgba(92,228,222,.55);background:linear-gradient(145deg,rgba(8,23,34,.96),rgba(4,12,20,.97));box-shadow:0 0 55px rgba(45,221,211,.10),0 30px 90px #000a;}
+.online-panel h1{margin:8px 0 10px;color:#efffff;text-shadow:0 0 24px rgba(86,238,224,.35);letter-spacing:.1em}
+.online-panel .menu{width:min(320px,100%);margin:28px auto 0}.online-panel .back{margin-top:20px;width:min(320px,100%)}
+.team-code-input,.team-code{box-sizing:border-box;width:min(380px,100%);margin:22px auto;padding:17px 18px;border:1px solid #54dfd7;border-radius:10px;background:rgba(2,10,17,.92);color:#e8fffb;text-align:center;font:700 clamp(22px,6vw,38px)/1.1 ui-monospace,monospace;letter-spacing:.25em;text-shadow:0 0 18px rgba(72,248,230,.55);box-shadow:0 0 26px rgba(61,223,219,.15),inset 0 0 22px rgba(40,143,157,.12);}
+.team-code{position:relative;overflow:hidden;margin:20px auto 12px}.team-code:after{content:"";position:absolute;left:0;right:0;height:2px;top:-3px;background:#a2fff3;box-shadow:0 0 14px 3px #51f4df;animation:teamScan 2.6s linear infinite;opacity:.55}
+@keyframes teamScan{to{transform:translateY(92px)}}
+.team-code-input{font-size:26px;outline:none}.team-code-input:focus{border-color:#b5fff6;box-shadow:0 0 30px rgba(61,223,219,.3)}
+#joinForm{display:flex;flex-direction:column;align-items:center;gap:10px;margin:12px auto 0;width:min(380px,100%)}#joinForm .primary{width:100%}
+.network-message{min-height:20px;color:#a8fce7;font-size:12px;letter-spacing:1.3px;text-shadow:0 0 12px rgba(82,245,218,.3)}
+.lobby-players{display:grid;gap:10px;margin:20px auto;max-width:390px;color:#d9f6f2;font-size:12px;letter-spacing:1.4px}.lobby-players span{padding:11px;border:1px solid rgba(94,178,182,.35);border-radius:7px;background:rgba(6,21,29,.84)}
+.online-actions{display:flex;flex-direction:column;align-items:center;gap:11px;width:min(320px,100%);margin:18px auto 0}.online-actions button{width:100%}.online-actions[hidden]{display:none}
+.network-hud{max-width:190px}.network-hud span{display:block;color:#c7ece9;font-size:8px;white-space:nowrap}.network-hud:not([hidden]){display:block}
+#connectionText{color:#76f4d1!important;text-shadow:0 0 8px rgba(72,246,211,.3)}
+@media(max-width:520px){.online-panel{padding:24px 17px}.team-code-input{letter-spacing:.16em}.online-panel h1{font-size:clamp(24px,7vw,38px)}}
+@media(max-width:800px){#history{padding:12px 0}.history-actions{margin-top:14px}.modegrid,.mapgrid{gap:12px}.preview{height:150px}}
+@media(max-height:650px){#history,#maps,#mode,#win{align-items:flex-start;overflow-y:auto;padding:8px 0}#history .historyStats{margin:10px 0}.history-actions{margin-top:10px}#history .list{max-height:28vh}.mapgrid{max-height:58vh}}

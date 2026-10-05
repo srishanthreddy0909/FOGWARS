@@ -1,0 +1,45 @@
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:#020506;color:#edf7f4;font-family:Segoe UI,Arial,sans-serif}
+button{font:inherit}
+.screen{position:fixed;inset:0;display:none}
+.screen.active{display:flex}
+#title,#mode,#maps,#history,#win{align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,#123338 0,#071417 38%,#020506 84%)}
+.panel{width:min(1250px,94vw)}
+.logo{font-size:clamp(52px,10vw,120px);font-weight:900;letter-spacing:14px}.logo b{color:#64ddc9}
+.sub{margin-top:8px;color:#789095;letter-spacing:4px;font-size:11px}
+.menu{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:42px}
+.btn{border:1px solid #2b4a51;background:#09181c;color:#edf7f4;border-radius:9px;padding:15px 24px;cursor:pointer}
+.btn:hover,.card:hover{border-color:#64ddc9;color:#64ddc9}.primary{width:280px;border-color:#64ddc9;background:#0b2529}
+.modegrid,.mapgrid{display:grid;gap:18px;margin-top:28px}.modegrid{grid-template-columns:repeat(2,1fr)}.mapgrid{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid #2b4a51;background:#09181c;color:#edf7f4;border-radius:14px;padding:18px;cursor:pointer;text-align:left;transition:.18s}
+.card h2{margin:10px 0 5px;font-size:19px}.card p{color:#789095;font-size:12px;line-height:1.5}
+.preview{height:245px;border-radius:9px;background:#101b1e;border:1px solid #243d43;overflow:hidden;position:relative}
+.pvroad{position:absolute;height:6px;background:#53686c;border-radius:9px;transform-origin:left center}
+.pvroad2{position:absolute;height:5px;background:#364b50;border-radius:9px;transform-origin:left center}
+.pvwater{position:absolute;border-radius:50%;background:#10343e;border:1px solid #2b6672}.pvpark{position:absolute;border-radius:50%;background:#16382d;border:1px solid #315b49}
+.pvmarket{position:absolute;background:#614b36;border:1px solid #9a7650;border-radius:3px}.pvstart{position:absolute;width:12px;height:12px;background:#64ddc9;border-radius:50%;box-shadow:0 0 15px #64ddc9}.pvgoal{position:absolute;width:20px;height:20px;border:2px solid #ad99ff;border-radius:50%}
+.back{margin-top:20px;background:none;border:0;color:#789095;cursor:pointer}
+button{transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease}
+button:focus-visible{outline:2px solid #9af5e4;outline-offset:3px}
+.btn:active,.card:active,.back:active,.control:active{transform:translateY(1px) scale(.985)}
+
+/* GAME */
+#game{flex-direction:column;background:#020506}
+.hud{height:58px;min-height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#050c0f;border-bottom:1px solid #1d363c;z-index:5}
+.hudlogo{font-weight:900;letter-spacing:4px;font-size:15px}.hudlogo b{color:#64ddc9}
+.stats{display:flex;gap:20px}.stat small{display:block;color:#60797e;font-size:7px;letter-spacing:2px}.stat strong{font-size:12px}
+.arena{position:relative;flex:1;min-height:0;overflow:hidden;background:#081012}
+#canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.compass{position:absolute;top:14px;left:14px;width:82px;height:82px;border:1px solid #426067;border-radius:50%;background:rgba(3,10,12,.91);z-index:4;display:flex;align-items:center;justify-content:center}
+.compass .n,.compass .s,.compass .e,.compass .w{position:absolute;font-size:8px;color:#789095}.compass .n{top:6px;color:#64ddc9}.compass .s{bottom:6px}.compass .e{right:7px}.compass .w{left:7px}
+.needle{position:absolute;width:4px;height:29px;bottom:19px;background:#64ddc9;transform-origin:50% 100%;clip-path:polygon(50% 0,100% 22%,50% 100%,0 22%);transition:.2s}
+.mission{position:absolute;top:14px;right:14px;width:220px;padding:12px;border:1px solid #2c4b52;border-radius:9px;background:rgba(3,10,12,.9);z-index:4;font-size:10px}
+.mission h3{font-size:8px;color:#60797e;letter-spacing:2px;margin-bottom:8px}.row{display:flex;justify-content:space-between;margin:6px 0}.row span:last-child{color:#64ddc9}
+.controls{position:absolute;left:16px;bottom:15px;width:235px;z-index:4}.turn{padding:8px 10px;background:rgba(3,10,12,.92);border:1px solid #2c4b52;border-radius:8px;margin-bottom:6px;font-size:9px;color:#789095}.turn b{color:#64ddc9}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.control{height:52px;background:#091a1f;color:#edf7f4;border:1px solid #2c4b52;border-radius:8px;cursor:pointer;touch-action:manipulation}.control:active{transform:scale(.95)}.up{grid-column:2}.left{grid-column:1;grid-row:2}.down{grid-column:2;grid-row:2}.right{grid-column:3;grid-row:2}
+.quit{position:absolute;right:15px;bottom:15px;z-index:4;background:rgba(3,10,12,.92);border:1px solid #2c4b52;color:#789095;border-radius:7px;padding:9px 13px;cursor:pointer}
+.toast{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(3,10,12,.97);border:1px solid #49666d;border-radius:8px;padding:13px 20px;z-index:10;font-size:11px;pointer-events:none}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:25px 0}.result{padding:14px;background:#071114;border:1px solid #203b41;border-radius:8px}.result b{display:block;font-size:22px;color:#64ddc9}.result small{color:#789095}
+.historyStats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.hstat{padding:16px;background:#09181c;border:1px solid #2b4a51;border-radius:8px}.hstat b{display:block;font-size:23px;color:#64ddc9}.hstat small{color:#789095}.list{max-height:380px;overflow:auto}.item{display:flex;justify-content:space-between;text-align:left;padding:11px;margin:6px 0;background:#09181c;border:1px solid #1e393f;border-radius:7px;font-size:11px}.item small{color:#789095}
+@media(max-width:800px){.modegrid,.mapgrid{grid-template-columns:1fr}.mapgrid{max-height:72vh;overflow:auto}.preview{height:155px}.mission{width:165px;font-size:8px}.compass{width:67px;height:67px}.controls{left:50%;transform:translateX(-50%);bottom:5px;width:225px}.quit{display:none}.stats{gap:9px}.hud{height:52px;min-height:52px;padding:0 8px}.hudlogo{font-size:11px}}

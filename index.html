@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>FOGWARS — Navigate the Unknown</title>
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/game.css"><link rel="stylesheet" href="css/menu.css">
+
+</head>
+<body>
+
+<section id="title" class="screen active"><div class="panel">
+<div class="logo">FOG<b>W</b>ARS</div><div class="sub">NAVIGATE THE UNKNOWN</div>
+<div class="menu"><button class="btn primary" id="newGame">NEW GAME</button><button class="btn primary" id="historyBtn">GAME HISTORY</button><button class="btn primary" id="exitBtn">EXIT</button></div>
+</div></section>
+
+<section id="mode" class="screen"><div class="panel">
+<h1>SELECT MODE</h1><p class="sub">Choose your navigation challenge</p>
+<div class="modegrid"><button class="card" id="singleBtn"><h2>◉ SINGLE PLAYER</h2><p>Navigate from the city edge to the center using the fewest moves.</p></button><button class="card" id="onlineBtn"><h2>◎ ONLINE TEAM</h2><p>Create or join a team and navigate the same hidden city together.</p></button></div>
+<button class="back" id="modeBack">← BACK</button></div></section>
+
+<section id="online" class="screen"><div class="panel online-panel"><div class="sub">FOGWARS NETWORK</div><h1>ONLINE TEAM</h1><p class="sub">Two navigators. One hidden city.</p><div class="menu"><button class="btn primary" id="createTeam">CREATE TEAM</button><button class="btn primary" id="joinTeam">JOIN TEAM</button></div><button class="back" id="onlineBack">← BACK</button></div></section>
+
+<section id="join" class="screen"><div class="panel online-panel"><div class="sub">SECURE TEAM LINK</div><h1>ENTER TEAM CODE</h1><form id="joinForm"><input id="teamCodeInput" class="team-code-input" maxlength="7" autocomplete="off" autocapitalize="characters" aria-label="Team code" placeholder="FOG7X2K"><button class="btn primary" type="submit">JOIN TEAM</button></form><p id="joinError" class="network-message" role="status"></p><button class="back" id="joinBack">← BACK</button></div></section>
+
+<section id="lobby" class="screen"><div class="panel online-panel"><div class="sub">FOGWARS NETWORK</div><h1 id="lobbyTitle">TEAM ASSEMBLY</h1><p id="teamLabel" class="sub">YOUR TEAM CODE</p><div id="teamCodeDisplay" class="team-code">------</div><p id="lobbyStatus" class="network-message">Waiting for teammate...</p><div class="lobby-players"><span id="playerOneReady">PLAYER 1 · WAITING</span><span id="playerTwoReady">PLAYER 2 · WAITING</span></div><div id="lobbyActions" class="online-actions"><button id="copyCode" class="btn primary">COPY CODE</button><button id="cancelTeam" class="back">CANCEL</button></div></div></section>
+
+<section id="maps" class="screen"><div class="panel">
+<h1>SELECT YOUR CITY</h1><p class="sub">Each city has a different road, water, park and market layout</p>
+<div class="mapgrid" id="mapGrid"></div><button class="back" id="mapBack">← BACK</button>
+</div></section>
+
+<section id="game" class="screen">
+<header class="hud"><div class="hudlogo">FOG<b>W</b>ARS</div><div class="stats">
+<div class="stat"><small>CITY · MODE</small><strong id="cityText">---</strong></div><div class="stat"><small>PLAYER / TURN</small><strong id="playerText">P1 · P1</strong></div><div class="stat"><small>MOVES</small><strong id="movesText">0</strong></div><div class="stat"><small>TIME</small><strong id="timeText">00:00</strong></div><div id="networkHud" class="stat network-hud" hidden><small id="connectionText">CONNECTION · ONLINE</small><strong id="teamHud">TEAM: ------</strong><span id="identityHud">YOU: PLAYER 1 · YOUR TURN</span><span id="teammateHud">TEAMMATE: PLAYER 2</span></div>
+</div></header>
+<main class="arena"><canvas id="canvas"></canvas><canvas id="minimap" aria-label="City minimap"></canvas><button class="routeToggle" id="routeToggle">SHOW OPTIMAL ROUTE</button>
+<div class="compass"><span class="n">N</span><span class="s">S</span><span class="e">E</span><span class="w">W</span><i class="needle" id="needle"></i></div>
+<div class="mission"><h3>MISSION CONTROL</h3><div class="row"><span>YOUR MOVES</span><span id="yourMoves">0</span></div><div class="row"><span>OBJECTIVE</span><span>CENTER</span></div><div class="row"><span>MODE</span><span id="modeText">---</span></div><div class="row"><span>TURN</span><span id="turnText">PLAYER 1</span></div><div class="row"><span>DIJKSTRA</span><span id="optimalText">--</span></div></div>
+<div class="controls"><div class="turn">TURN: <b id="turnBox">PLAYER 1</b></div><div class="pad">
+<button class="control up" data-dir="N">▲<br>FWD</button><button class="control left" data-dir="W">◀<br>LEFT</button><button class="control down" data-dir="S">▼<br>BKWD</button><button class="control right" data-dir="E">▶<br>RIGHT</button>
+</div></div><button class="quit" id="quitGame">EXIT GAME</button>
+</main></section>
+
+<section id="win" class="screen"><div class="panel" style="max-width:650px">
+<div style="font-size:55px;color:#64ddc9">✦</div><h1 id="winTitle">FOG CONQUERED</h1><p id="winMsg" class="sub"></p>
+<p id="efficiency" class="sub"></p><div class="results"><div class="result"><b id="finalTime">00:00</b><small>TIME</small></div><div class="result"><b id="finalMoves">0</b><small>MOVES</small></div><div class="result"><b id="finalOptimal">0</b><small>DIJKSTRA OPTIMAL</small></div></div>
+<button class="btn primary" id="again">PLAY AGAIN</button><br><button class="back" id="mainMenu">MAIN MENU</button>
+</div></section>
+
+<section id="history" class="screen"><div class="panel" style="max-width:900px">
+<h1>GAME HISTORY</h1><div class="historyStats"><div class="hstat"><b id="hg">0</b><small>GAMES</small></div><div class="hstat"><b id="hw">0</b><small>WINS</small></div><div class="hstat"><b id="hb">--</b><small>BEST TIME</small></div><div class="hstat"><b id="hm">--</b><small>BEST MOVES</small></div></div>
+<div class="list" id="historyList"></div><div class="history-actions"><button class="back" id="historyBack">← BACK</button><button class="back" id="clearHistory">CLEAR HISTORY</button></div>
+</div></section>
+
+
+<script src="js/maps.js" defer></script><script src="js/graph.js" defer></script><script src="js/camera.js" defer></script><script src="js/pathfinding.js" defer></script><script src="js/history.js" defer></script><script src="js/fog.js" defer></script><script src="js/minimap.js" defer></script><script src="js/renderer.js" defer></script><script src="js/multiplayer.js" defer></script><script src="js/game.js" defer></script><script src="js/ui.js" defer></script><script src="js/main.js" defer></script></body>
+</html>
